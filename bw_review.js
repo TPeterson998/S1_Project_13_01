@@ -34,8 +34,42 @@
 
 */
 
+window.onload = init();
 
+function init() {
+      var stars = document.querySelectorAll("span#stars img");
+      for (var i = 0; i < stars.length; i++) {
+            stars[i].style.cursor = "pointer";
+            stars[i].addEventListener("mouseenter", lightStars);
+      }
+      document.addEventListener("keyup", updateCount);
+}
 
+function lightStars() {
+      var starNumber = event.target.alt;
+      var stars = document.querySelectorAll("span#stars img");
+      for (var i = 0; i < starNumber; i++) {
+            stars[i].src = "bw_star2.png";
+      };
+      for (var i = starNumber; i < 5; i++) {
+            stars[i].src = "bw_star.png";
+      }
+      document.getElementById("rating").value = starNumber + " stars";
+      stars[i].addEventListener("mouseleave", turnOffStars);
+      star[i].addEventListener("mouseclick", function () {
+            star[i].removeEventListener("mouseleave", turnOffStars);
+      })
+};
+
+function turnOffStars() {
+      var stars = document.querySelectorAll("span#stars img");
+      for (var i = 0; i < stars.length; i++) {
+            stars[i].src = "bw_star.png";
+      };
+      document.getElementById("rating").value = "";
+};
+
+function updateCount() {}
 
 
 
