@@ -55,9 +55,9 @@ function lightStars() {
             stars[i].src = "bw_star.png";
       }
       document.getElementById("rating").value = starNumber + " stars";
-      stars[i].addEventListener("mouseleave", turnOffStars);
-      star[i].addEventListener("mouseclick", function () {
-            star[i].removeEventListener("mouseleave", turnOffStars);
+      event.target.addEventListener("mouseleave", turnOffStars);
+      event.target.addEventListener("click", function () {
+            event.target.removeEventListener("mouseleave", turnOffStars);
       })
 };
 
